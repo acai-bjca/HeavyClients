@@ -1,50 +1,48 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>cinemas</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <title>Cines</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/apimock.js"></script>
+        <script src="js/app.js"></script>
+        <link rel="stylesheet"
+              href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <h1>Cinema</h1>
+        <form>
+            Nombre del cinema:<br> <input id="txt_cine" type="text" name="nombreCine">
+            <button type="button" onclick="app.buscarFunciones()">Buscar Funciones</button>
+            <p id="cineTxt">Cine</p>
+            <p id="funcionesTxt">Funciones</p>
 
-<script src="/webjars/jquery/jquery.min.js"></script>
-<script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="js/apimock.js"></script>
-<script src="js/app.js"></script>
-<link rel="stylesheet"
-	href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
-</head>
-<body>
+            <style>
+                table, th, td {
+                    border: 1px solid black;
+                }
+            </style>
+            
+             <table id="tablaFunciones">
+                <thead>
+                    <tr>
+                        <th>Num</th>
+                        <th>Select</th>
+                        <th>Pelicula</th>
+                        <th>Sillas</th>
+                        <th>Fecha</th>
+                    </tr>
+                </thead>
+                <tbody id="tb1">
 
-	<h1>Cinema</h1>
-	<form>
-		Nombre del cinema:<br> <input id="txt_cine" type="text" name="nombreCine">
-                <button type="button" onclick="apimock.updateCinema()">Buscar</button>
-		<br><br>
-                <p id="funcionesTxt">Prueba</p>
-                <p id="cineTxt">Cine</p>
-
-		<style>
-                    table, th, td {
-                            border: 1px solid black;
-                    }
-                </style>
-
-		<table style="width: 100%">
-			<tr>
-				<th>Cinema</th>
-				<th>Funcion</th>
-				<th>Sillas</th>
-				<th>Fecha</th>
-			</tr>
-			<tr>
-				<td>Jill</td>
-				<td>Smith</td>
-				<td>50</td>
-				<td>50</td>
-			</tr>
-		</table>
-
-                
-	</form>
-
-</body>
+                </tbody>
+            </table>
+            <input type="button" value="funcion seleccionada" onclick="mostrarSala()"/>
+            <input type="button" value="Mostrar Sala" onclick="location='salaCine.html'; mostrarSala()"/>
+        </form>
+    </body>
 </html>

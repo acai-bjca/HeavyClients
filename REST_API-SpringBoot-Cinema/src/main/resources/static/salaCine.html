@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Sala de Cine</title>
+        <meta charset="UTF-8">        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="js/apimock.js"></script>
+        <script src="js/app.js"></script>
+        <link rel="stylesheet"
+              href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
+    </head>
+    <body>
+        <h1>Cinema</h1>
+        <form>           
+            <h1 style="color:red;">Cinema </h1>
+            <div id="encabezado_div_menu">      
+
+            </div>
+            <div id="main" class="fondo col-md-12 col-xs-12 col-sm-12">
+                <div class="fondo col-md-2 col-xs-2 col-sm-2"></div>                
+                <div id="sala" class="fondo col-md-8 col-xs-8 col-sm-8">
+                    <form>
+                        <button type="button" onclick="mostrarSala()">Mostrar Sala</button>
+                        
+                        <table id="tablaSillas">
+                            <thead>
+                                <tr>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+
+                            </tbody>
+                        </table>
+                    </form>
+                </div> 
+                <div class="fondo col-md-2 col-xs-2 col-sm-2"></div>
+
+            </div> 
+        </form>
+    </body>
+</html>
