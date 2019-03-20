@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sala de Cine</title>
+        <title>Cines</title>
         <meta charset="UTF-8">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,6 +10,7 @@
         <script src="/webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="js/apimock.js"></script>
         <script src="js/app.js"></script>
+        <script type="text/javascript" src="scriptJS.js"></script>
         <link rel="stylesheet"
               href="/webjars/bootstrap/3.3.7/css/bootstrap.min.css" />
     </head>
@@ -24,8 +25,7 @@
                 <div class="fondo col-md-2 col-xs-2 col-sm-2"></div>                
                 <div id="sala" class="fondo col-md-8 col-xs-8 col-sm-8">
                     <form>
-                        <button type="button" onclick="mostrarSala()">Mostrar Sala</button>
-                        
+                        <input id="btnMostrar2" type="button" value="mostrar" onclick="mostrarSala2()"/>                       
                         <table id="tablaSillas">
                             <thead>
                                 <tr>

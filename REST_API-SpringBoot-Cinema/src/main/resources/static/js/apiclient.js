@@ -1,7 +1,4 @@
-//@author dsaavedra
-
 apimock = (function () {
-
     var mockdata = [];
     var cine;
     var text = '{ "employees" : [' +
