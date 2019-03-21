@@ -15,10 +15,8 @@ apimock = (function () {
     mockdata["CineColombia"] = '{ "name": "CineColombia", "functions": [{ "movie": { "name": "capitana marvel", "genre": "Aventure" }, "seats": [[true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, false, true, true, true, true, true, true, true, false], [true, true, false, true, true, true, false, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true], [true, true, true, true, true, false, true, true, true, true, true, true], [true, true, true, true, true, true, true, true, true, true, true, true]], "date": "2019-03-14 01:30" }] }';
     
     return {      
-        getCinemaByName: function (name, callback) {
-            document.getElementById("funcionesTxt").innerHTML = "HOLAAA";
+        getCinemaByName: function (name, callback) {            
             cine = mockdata[name];
-            alert( "Load was performed." );
             var objCine = JSON.parse(cine);       
             //document.getElementById("funcionesTxt").innerHTML = "APIMOCK";                       
             callback(objCine);

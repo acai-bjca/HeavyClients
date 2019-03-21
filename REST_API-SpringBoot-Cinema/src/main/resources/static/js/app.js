@@ -5,69 +5,32 @@ var sillas;
 
 function llenarTabla() {
     $("#tb1").empty();
+    $("#thead").empty();
+    var fila = "<tr><td>Seleccionar</td><td>Número</td><td name='pelicula'>Película</td><td>Sillas</td><td>Fecha</td></tr>";    
+    $("#thead").append(fila);   
     $("#tbody").empty();
     for (i = 0; i < funciones.length; i++) {
         var numFun = i + 1;
         var pelicula = funciones[i].movie.name;
         var sillas = sillasDisponibles(funciones[i].seats);
         var fecha = funciones[i].date;
-        var fila = "<tr><td >" + numFun + "</td><td><input type='radio' name='record'></td><td name='pelicula'>" + pelicula + "</td><td>" + sillas + "</td><td>" + fecha + "</td></tr>";
+        var fila = "<tr><td><input type='radio' name='record'></td><td>" + numFun + "</td><td name='pelicula'>" + pelicula + "</td><td>" + sillas + "</td><td>" + fecha + "</td></tr>";
         $("#tb1").append(fila);
     }
 }
 
-
-function mostrarSala2(){
-    alert(funcionSeleccionada);
-    $("#btnMostrar2").click(function(){
-    alert(sillas[1][1]);
-    alert(sillas);
-    //
-    var imgOcupada = "<img src=\"../imagenes/sillaGris.png\" style=\"width: 60px; height: 60px\">";
-    var imgDisponible = "<img src=\"../imagenes/sillaAzul.png\" style=\"width: 60px; height: 60px\">";
-    var divMain = document.getElementById("sala");
-    var tablaSala = document.getElementById("tablaSillas");
-    var tblBody = document.createElement("tbody");
-    tablaSala.appendChild(tblBody);
+function mostrarSala() {
     $("#tbody").empty();
-    for (i = 0; i < sillas.length; i++) {
-        var fila = document.createElement('tr');
-        var fila = "<tr>";
-        for (j = 0; j < sillas[i].length; j++) {
-            if (sillas[i][j] == true) {
-                fila += "<td>" + imgDisponible + "</td>";
-            } else {
-                fila += "<td>" + imgOcupada + "</td>";
-            }
-        }
-        fila += "</tr>";
-        $("#tbody").append(fila);
-    }
-});
-    //divMain.appendChild(tablaSala);
-}
-
-function mostrarSala() {/*
-    $("#btnMostrar").click(function(){
-        $("#tb1 tr").each(function () {
-            if($(this).find('input[name="record"]').is(":checked")){    
-                funcionSeleccionada = ($(this).find('td:nth-child(1)')).text();
-                alert(funcionSeleccionada-1);
-                alert(funciones[funcionSeleccionada-1].movie.name);
-            } 
-        });
-    });*/
-    
     $("#tb1 tr").each(function () {
         if($(this).find('input[name="record"]').is(":checked")){    
-            funcionSeleccionada = ($(this).find('td:nth-child(1)')).text();
+            funcionSeleccionada = ($(this).find('td:nth-child(2)')).text();
             //alert(funcionSeleccionada);
-            alert(funciones[funcionSeleccionada-1].movie.name);
+            //alert(funciones[funcionSeleccionada-1].movie.name);
         } 
     });
     sillas = funciones[funcionSeleccionada-1].seats;
-    var imgOcupada = "<img src=\"../imagenes/sillaGris.png\" style=\"width: 60px; height: 60px\">";
-    var imgDisponible = "<img src=\"../imagenes/sillaAzul.png\" style=\"width: 60px; height: 60px\">";
+    var imgOcupada = "<img src=\"/imagenes/sillaGris.png\" style=\"width: 45px; height: 45px\"";
+    var imgDisponible = "<img src=\"/imagenes/sillaAzul.png\" style=\"width: 45px; height: 45px\"";
     var divMain = document.getElementById("sala");
     var tablaSala = document.getElementById("tablaSillas");
     var tblBody = document.createElement("tbody");
@@ -79,9 +42,9 @@ function mostrarSala() {/*
         var fila = "<tr>";
         for (j = 0; j < sillas[i].length; j++) {
             if (sillas[i][j] == true) {
-                fila += "<td>" + imgDisponible + "</td>";
+                fila += "<td>" + imgDisponible +"title=\"Fila: "+(i+1)+", Columna: "+(j+1)+"\">"+ "</td>";
             } else {
-                fila += "<td>" + imgOcupada + "</td>";
+                fila += "<td>" + imgOcupada +"title=\"Fila: "+(i+1)+", Columna: "+(j+1)+"\">"+ "</td>";
             }
         }
         fila += "</tr>";
@@ -116,14 +79,14 @@ app = (function () {
             functionscinema = cine.functions;
             funciones = functionscinema;            
             llenarTabla();
-            document.getElementById("funcionesTxt").innerHTML = functionscinema[0].movie.name;
+            //document.getElementById("funcionesTxt").innerHTML = functionscinema[0].movie.name;
         },
 
-        buscarFunciones: function () {
+        buscarFunciones: function () {           
             app.setCinemaName();
-            document.getElementById("funcionesTxt").innerHTML = "function app";
-            apiclient.getCinemaByName(nameCinema, app.obtenerFunciones);
-            //apimock.getCinemaByName(nameCinema, app.obtenerFunciones);
+            //document.getElementById("funcionesTxt").innerHTML = "function app";
+            //apiclient.getCinemaByName(nameCinema, app.obtenerFunciones);
+            apimock.getCinemaByName(nameCinema, app.obtenerFunciones);
         }
     };
 })();
