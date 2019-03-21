@@ -16,8 +16,9 @@ apimock = (function () {
     
     return {      
         getCinemaByName: function (name, callback) {
-            //document.getElementById("funcionesTxt").innerHTML = "HOLAAA";
+            document.getElementById("funcionesTxt").innerHTML = "HOLAAA";
             cine = mockdata[name];
+            alert( "Load was performed." );
             var objCine = JSON.parse(cine);       
             //document.getElementById("funcionesTxt").innerHTML = "APIMOCK";                       
             callback(objCine);

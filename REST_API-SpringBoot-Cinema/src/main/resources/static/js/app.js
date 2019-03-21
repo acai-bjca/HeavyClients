@@ -121,7 +121,9 @@ app = (function () {
 
         buscarFunciones: function () {
             app.setCinemaName();
-            apimock.getCinemaByName(nameCinema, app.obtenerFunciones);
+            document.getElementById("funcionesTxt").innerHTML = "function app";
+            apiclient.getCinemaByName(nameCinema, app.obtenerFunciones);
+            //apimock.getCinemaByName(nameCinema, app.obtenerFunciones);
         }
     };
 })();
